@@ -1,0 +1,54 @@
+### Register POST
+
+POST http://localhost:9000/register
+Accept: application/json
+Content-Type: application/json
+
+{
+    "name" :"Aldo",
+    "username" :"aldo",
+    "password" :"aldo"
+}
+
+### Login 
+POST http://localhost:9000/login
+Accept: application/json
+Content-Type: application/json
+
+{
+    "username" :"bima",
+    "password" :"bima"
+}
+
+### send message
+POST  http://localhost:9000/users/message
+Accept: application/json
+Content-Type: application/json
+
+{
+    "date" :"2023-03-14T00:00:00Z",
+    "message":"hallo test 13",
+    "receiver" :"bima"
+}
+
+### Message show sender and last message
+GET http://localhost:9000/users/message
+Accept: application/json
+
+### Read message from sender
+GET http://localhost:9000/users/read?sender=billy&pageSize=10&page=0
+Accept: application/json
+
+### Setread 
+POST http://localhost:9000/users/setread
+Accept: application/json
+Content-Type: application/json
+
+{
+    "message_id" :5,
+    "sender_id":3
+}
+
+### Logout
+GET http://localhost:9000/users/logout
+Accept: application/json
