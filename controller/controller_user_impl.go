@@ -66,6 +66,7 @@ func (controller_user *ControllerUserImpl) Login(c *gin.Context) {
 	}
 	session, _ := Store.Get(c.Request, "Auth-Key")
 	session.Values["username"] = users.Username
+	session.Values["sender_id"] = users.Id
 	session.Save(c.Request, c.Writer)
 
 	c.JSON(http.StatusOK, web.ResponseWeb{

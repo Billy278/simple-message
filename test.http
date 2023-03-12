@@ -1,23 +1,23 @@
 ### Register POST
 
-POST http://localhost:9000/register
+POST http://localhost:9001/register
 Accept: application/json
 Content-Type: application/json
 
 {
-    "name" :"Aldo",
-    "username" :"aldo",
-    "password" :"aldo"
+    "name" :"tono",
+    "username" :"tono",
+    "password" :"tono"
 }
 
 ### Login 
-POST http://localhost:9000/login
+POST http://localhost:9001/login
 Accept: application/json
 Content-Type: application/json
 
 {
-    "username" :"bima",
-    "password" :"bima"
+    "username" :"billy",
+    "password" :"billy"
 }
 
 ### send message
@@ -27,7 +27,25 @@ Content-Type: application/json
 
 {
     "date" :"2023-03-14T00:00:00Z",
-    "message":"hallo test 13",
+    "message":"hallo test 18",
+    "receiver" :"bima"
+}
+
+### GET  Publisc and send
+GET  http://localhost:9001/users/publisher/sender
+Accept: application/json
+
+
+
+
+### send messageTest
+POST  http://localhost:9000/users/messageTest
+Accept: application/json
+Content-Type: application/json
+
+{
+    "date" :"2023-03-14T00:00:00Z",
+    "message":"hallo test 1",
     "receiver" :"bima"
 }
 
@@ -45,10 +63,10 @@ Accept: application/json
 Content-Type: application/json
 
 {
-    "message_id" :5,
-    "sender_id":3
+    "message_id" :8,
+    "sender_id":1
 }
 
 ### Logout
-GET http://localhost:9000/users/logout
+GET http://localhost:9001/users/logout
 Accept: application/json

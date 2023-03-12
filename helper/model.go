@@ -5,14 +5,26 @@ import (
 	"simple-message/model/web"
 )
 
+func ResponseMessageSucces(message domain.Massage) web.ResponseMessage {
+	return web.ResponseMessage{
+		Id:        message.Id,
+		Sender:    message.Sender,
+		Date:      message.Date,
+		Message:   message.Message,
+		Receiver:  message.Receiver,
+		Sender_id: message.Sender_id,
+	}
+}
+
 func ResponseMessage(message domain.Massage) web.ResponseMessage {
 	return web.ResponseMessage{
-		Id:       message.Id,
-		Sender:   message.Sender,
-		Date:     message.Date,
-		Message:  message.Message,
-		Receiver: message.Receiver,
-		Jumlah:   message.Jumlah,
+		Id:        message.Id,
+		Sender:    message.Sender,
+		Date:      message.Date,
+		Message:   message.Message,
+		Receiver:  message.Receiver,
+		Sender_id: message.Id,
+		Jumlah:    message.Jumlah,
 	}
 }
 

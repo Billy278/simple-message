@@ -1,0 +1,12 @@
+[
+    {
+        "date" :"2023-03-14T00:00:00Z",
+        "message":"hallo test 1",
+        "receiver" :"bima"
+    },
+    {
+        "date" :"2023-03-14T00:00:00Z",
+        "message":"hallo test 2",
+        "receiver" :"bima"
+    }
+]

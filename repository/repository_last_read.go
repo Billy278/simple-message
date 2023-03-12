@@ -8,5 +8,7 @@ import (
 
 type RepositoryLastRead interface {
 	Create(ctx context.Context, DB *sql.DB, last domain.LastRead)
-	FindMaxByid(ctx context.Context, DB *sql.DB) int
+	//CreateNew(ctx context.Context, DB *sql.DB, last domain.LastRead)
+	//FindMaxByid(ctx context.Context, DB *sql.DB) int
+	FindByid(ctx context.Context, DB *sql.DB, id int) (int, error)
 }

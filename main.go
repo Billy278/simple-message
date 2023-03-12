@@ -2,6 +2,7 @@ package main
 
 import (
 	"net/http"
+	"os"
 	"simple-message/app"
 	"simple-message/controller"
 	"simple-message/middleware"
@@ -14,6 +15,11 @@ import (
 )
 
 func main() {
+	if os.Getenv("MODE") == "API" {
+		// jalankan server
+	} else {
+		// jalankan subscriber
+	}
 	gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
 	DB := app.NewDB()
@@ -36,13 +42,17 @@ func main() {
 	authRouter := router.Group("/users")
 	authRouter.Use(middleware.AuthMiddleware)
 	authRouter.GET("/message", ControllerMessage.SelectAllSenderWithLastMessage)
+
+	authRouter.GET("/publisher/sender", ControllerMessage.ReceiverPublisher)
+	authRouter.POST("/messageTest", ControllerMessage.SendMessageTest)
+
 	authRouter.POST("/message", ControllerMessage.SendMessage)
 	authRouter.GET("/read", ControllerMessage.SelectPartSender)
 	authRouter.POST("/setread", ControllerLast.Create)
 	authRouter.GET("/logout", ControllerUser.Logout)
 
 	server := http.Server{
-		Addr:    "localhost:9000",
+		Addr:    "localhost:9001",
 		Handler: router,
 	}
 
