@@ -15,9 +15,14 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/joho/godotenv"
 )
 
 func main() {
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
 
 	gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
@@ -113,5 +118,6 @@ func main() {
 		}
 
 	}
+	fmt.Println("test")
 
 }

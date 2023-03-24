@@ -2,12 +2,14 @@ package app
 
 import (
 	"database/sql"
+	"os"
 	"simple-message/helper"
 	"time"
 )
 
 func NewDB() *sql.DB {
-	DB, err := sql.Open("mysql", "root:@tcp(localhost:3306)/simple_message?parseTime=true")
+	conn := os.Getenv("MYSQL_CONNECTION")
+	DB, err := sql.Open("mysql", conn)
 	helper.PanicIfError(err)
 	DB.SetMaxIdleConns(10)
 	DB.SetMaxOpenConns(20)
